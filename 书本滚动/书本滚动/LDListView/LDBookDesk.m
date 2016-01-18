@@ -8,10 +8,16 @@
 
 #import "LDBookDesk.h"
 #import "UIView+LDDeliverEvent.h"
+
 #define ViewW ([UIScreen mainScreen].bounds.size.width -(self.marginX * (self.maxCol + 1)))  / self.maxCol
 #define ViewH ViewW*self.HWScal
 #define screenSize [UIScreen mainScreen].bounds.size
-#define BundleImageWithName(name) [UIImage imageNamed:name inBundle:[NSBundle bundleWithPath:[[NSBundle mainBundle]pathForResource:@"source" ofType:@"bundle"]] compatibleWithTraitCollection:nil]
+
+static inline UIImage * bundleImageWithName(NSString * name)
+{
+    return [UIImage imageNamed:name inBundle:[NSBundle bundleWithPath:[[NSBundle mainBundle]pathForResource:@"source" ofType:@"bundle"]] compatibleWithTraitCollection:nil];
+}
+
 @interface LDBookDesk()
 {
     NSInteger _deleteIndex;
@@ -57,7 +63,7 @@
         //放书架背景图
         NSInteger maxRow = bookList.count/self.maxCol;
         for (int i = 0; i < maxRow + 1; i++) {
-            UIImageView * imageView = [[UIImageView alloc]initWithImage:BundleImageWithName(@"bookDesk")];
+            UIImageView * imageView = [[UIImageView alloc]initWithImage:bundleImageWithName(@"bookDesk")];
             ;
             
             imageView.frame = CGRectMake(0, (self.marginY  + ViewH)*i, screenSize.width, self.marginY * 2 + ViewH);
@@ -76,10 +82,10 @@
         view.tipIcon.image = nil;
         switch (operationType) {
             case LDBookDeskClickOperationTypeDeleteSelectedViewList:
-                view.tipIcon.image = BundleImageWithName(@"unSelected");
+                view.tipIcon.image = bundleImageWithName(@"unSelected");
                 break;
             case LDBookDeskClickOperationTypeDeleteSelectedView:
-                view.tipIcon.image = BundleImageWithName(@"delete");
+                view.tipIcon.image = bundleImageWithName(@"delete");
                 break;
                 
             default:
@@ -97,10 +103,10 @@
     {
         if ([self.deletedViews containsObject:imageView]) {
             [self.deletedViews removeObject:imageView];
-            imageView.tipIcon.image = BundleImageWithName(@"unSelected");
+            imageView.tipIcon.image = bundleImageWithName(@"unSelected");
         }else{
             [self.deletedViews addObject:imageView];
-            imageView.tipIcon.image = BundleImageWithName(@"selected");
+            imageView.tipIcon.image = bundleImageWithName(@"selected");
         }
     }
     //如果是点谁删谁则执行下面代码
@@ -162,7 +168,7 @@
     [self calculateContentSize];
     //重置状态
     self.operationType = LDBookDeskClickOperationTypeOnlyDeliver;
-
+    
 }
 
 #pragma mark - 一张一张的动画展示
