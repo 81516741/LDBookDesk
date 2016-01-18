@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LWY-dn-nrq">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="9FJ-HL-6ET">
+            <objects>
+                <viewController id="z5Z-t3-a3E" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Rad-6V-hLi"/>
+                        <viewControllerLayoutGuide type="bottom" id="M5k-yJ-r8p"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hSL-DO-nAg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W1o-Mu-50Z">
+                                <rect key="frame" x="165" y="319" width="46" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="UUg-2r-Z1K"/>
+                                    <constraint firstAttribute="height" constant="30" id="hT1-Dp-ZRj"/>
+                                </constraints>
+                                <state key="normal" title="掀开"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" id="Gia-Rn-JHz"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="W1o-Mu-50Z" firstAttribute="centerX" secondItem="hSL-DO-nAg" secondAttribute="centerX" id="JaV-Lb-HdP"/>
+                            <constraint firstItem="W1o-Mu-50Z" firstAttribute="centerY" secondItem="hSL-DO-nAg" secondAttribute="centerY" id="rOz-9Y-8gK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="nBd-bt-RlA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LYs-9Q-OBa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="503.5" y="363.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gub-N2-aGI" customClass="LDBookDesk">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gub-N2-aGI" secondAttribute="bottom" id="28e-cQ-WWy"/>
+                            <constraint firstItem="gub-N2-aGI" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="CwM-ao-k3a"/>
+                            <constraint firstAttribute="trailing" secondItem="gub-N2-aGI" secondAttribute="trailing" id="Dkh-kh-b2p"/>
+                            <constraint firstItem="gub-N2-aGI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xae-rc-BNa"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Dk-kC-fWt">
+                        <nil key="title"/>
+                        <leftBarButtonItems>
+                            <barButtonItem title="多/单" id="4ra-KO-k1g">
+                                <connections>
+                                    <action selector="multiSelected:" destination="BYZ-38-t0r" id="fLp-5a-mua"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="删除" id="rXp-y2-jQj">
+                                <connections>
+                                    <action selector="delete:" destination="BYZ-38-t0r" id="cKJ-X9-vhm"/>
+                                </connections>
+                            </barButtonItem>
+                        </leftBarButtonItems>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="lPr-B0-YjX">
+                            <rect key="frame" x="96" y="7" width="128" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="返回"/>
+                            <connections>
+                                <action selector="dismisi:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7SK-5N-yhv"/>
+                            </connections>
+                        </button>
+                        <barButtonItem key="rightBarButtonItem" title="全部删除" id="EJX-le-q3s">
+                            <connections>
+                                <action selector="deleteAll:" destination="BYZ-38-t0r" id="wHD-5S-hYg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="bookDesk" destination="gub-N2-aGI" id="FrS-0Z-DwE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="950" y="314"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="tps-V7-xoC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LWY-dn-nrq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="6XW-ax-ZfS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="z5Z-t3-a3E" kind="relationship" relationship="rootViewController" id="RDN-D3-4uv"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f5d-D5-gpP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="56" y="358"/>
+        </scene>
+    </scenes>
+</document>
